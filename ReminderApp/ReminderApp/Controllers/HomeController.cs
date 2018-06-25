@@ -13,6 +13,7 @@ namespace ReminderApp.Controllers
         public IActionResult Index()
         {
             return View();
+            // test from macbook
         }
 
         public IActionResult About()
