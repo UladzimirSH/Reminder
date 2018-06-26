@@ -1,15 +1,12 @@
 ﻿using Domain.Contexts;
 using Domain.Entities;
 
-namespace DAL.Repositories {
-    public class UserReporitory: Repository<Models.User> {
-        public UserReporitory() : base(new MainContext())
-        {
-            
+namespace DAL.Repositories {    
+    public class UserReporitory : Repository<Models.User>, IUserRepository {
+        public UserReporitory() : base(new MainContext()) {
         }
 
-        public new void Add(Models.User user)
-        {
+        public new void Add(Models.User user) {
 
             var userModel = new User();
             userModel.Email = user.Email;
@@ -17,8 +14,7 @@ namespace DAL.Repositories {
             Context.Set<User>().Add(userModel);
         }
 
-        public void Commit()
-        {
+        public void Commit() {
             Context.SaveChanges();
         }
     }

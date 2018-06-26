@@ -39,5 +39,9 @@ namespace DAL.Repositories {
 		public void RemoveRange(IEnumerable<TEntity> entities) {
 			Context.Set<TEntity>().RemoveRange(entities);
 		}
+
+	    public void Commit() {
+	        Context.SaveChanges();
+	    }
 	}
 }

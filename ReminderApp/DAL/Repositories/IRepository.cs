@@ -15,5 +15,7 @@ namespace DAL
 
         void Remove(TEntity entit);
         void RemoveRange(IEnumerable<TEntity> entities);
+
+        void Commit();
     }
 }
