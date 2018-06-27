@@ -18,12 +18,9 @@ namespace Domain.Contexts {
 		// on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
 
 		public virtual DbSet<User> Users { get; set; }
-	    //public virtual DbSet<User> UsersPreferences { get; set; }
-    }
-
-	//public class MyEntity
-	//{
-	//    public int Id { get; set; }
-	//    public string Name { get; set; }
-	//}
+	    public virtual DbSet<UserPreferences> UsersPreferences { get; set; }
+        public virtual DbSet<Bank> Banks { get; set; }
+        public virtual DbSet<BankCard> BankCards { get; set; }
+        public virtual DbSet<Friend> Friendses { get; set; }
+    }	
 }

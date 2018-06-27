@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Web;
-using System.Web.Mvc;
-using DAL.Repositories;
+﻿using System.Web.Mvc;
+using DAL.Repositories.Declarations;
 using Models;
 
 namespace RApp.Controllers {

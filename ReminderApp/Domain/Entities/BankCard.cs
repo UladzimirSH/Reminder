@@ -1,20 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Common.Enums;
 
 namespace Domain.Entities {
-    public class BankCard
-    {
-        public int Id { get; set; }
+    public class BankCard : EntityBase {
+        
+        [Required]
         public int UserId { get; set; }
-        public int BankId { get; set; }
-        public int Number { get; set; }
-        public DateTime ExpiryDate { get; set; }
-        public string Note { get; set; }
-        public int NotifyType { get; set; }
 
-        public Bank Bank { get; set; }
+        [Required]
+        [ForeignKey(nameof(Bank))]        
+        public int BankId { get; set; }
+        public virtual Bank Bank { get; set; }
+
+        [Required]
+        public int Number { get; set; }
+
+        [Required]
+        public DateTime ExpiryDate { get; set; }
+
+        [MaxLength(256)]
+        public string Note { get; set; }
+
+        public NotifyType NotifyType { get; set; }        
     }
 }

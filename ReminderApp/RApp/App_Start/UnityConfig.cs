@@ -1,5 +1,6 @@
 using System;
 using DAL.Repositories;
+using DAL.Repositories.Declarations;
 using Unity;
 
 namespace RApp

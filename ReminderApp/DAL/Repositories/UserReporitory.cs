@@ -1,21 +1,10 @@
-﻿using Domain.Contexts;
-using Domain.Entities;
+﻿using DAL.Repositories.Declarations;
+using Domain.Contexts;
+using Models;
 
 namespace DAL.Repositories {    
-    public class UserReporitory : Repository<Models.User>, IUserRepository {
+    public class UserReporitory : Repository<User>, IUserRepository {
         public UserReporitory() : base(new MainContext()) {
-        }
-
-        public new void Add(Models.User user) {
-
-            var userModel = new User();
-            userModel.Email = user.Email;
-
-            Context.Set<User>().Add(userModel);
-        }
-
-        public void Commit() {
-            Context.SaveChanges();
-        }
+        }      
     }
 }

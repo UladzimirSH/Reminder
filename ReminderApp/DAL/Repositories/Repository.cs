@@ -3,41 +3,44 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
+using DAL.Repositories.Declarations;
+using Models;
 
 namespace DAL.Repositories {
-	public class Repository<TEntity> : IRepository<TEntity> where TEntity : class {
+	public class Repository<TModel> : IRepository<TModel> where TModel : ModelBase {
 		protected readonly DbContext Context;
 
 		public Repository(DbContext context) {
 			Context = context;
 		}
 
-		public TEntity Get(int id) {
-			return Context.Set<TEntity>().Find(id);
+		public TModel Get(int id) {
+			return Context.Set<TModel>().Find(id);
 		}
 
-		public IEnumerable<TEntity> GetAll() {
-			return Context.Set<TEntity>().ToList();
+		public IEnumerable<TModel> GetAll() {
+			return Context.Set<TModel>().ToList();
 		}
 
-		public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate) {
-			return Context.Set<TEntity>().Where(predicate);
+		public IEnumerable<TModel> Find(Expression<Func<TModel, bool>> predicate) {
+			return Context.Set<TModel>().Where(predicate);
 		}
 
-		public void Add(TEntity entity) {
-			Context.Set<TEntity>().Add(entity);
+		public void Add(TModel entity) {
+
+			Context.Set<TModel>().Add(entity);
 		}
 
-		public void AddRange(IEnumerable<TEntity> entities) {
-			Context.Set<TEntity>().AddRange(entities);
+		public void AddRange(IEnumerable<TModel> entities) {
+			Context.Set<TModel>().AddRange(entities);
 		}
 
-		public void Remove(TEntity entity) {
-			Context.Set<TEntity>().Remove(entity);
+		public void Remove(TModel entity) {
+			Context.Set<TModel>().Remove(entity);
 		}
 
-		public void RemoveRange(IEnumerable<TEntity> entities) {
-			Context.Set<TEntity>().RemoveRange(entities);
+		public void RemoveRange(IEnumerable<TModel> entities) {
+			Context.Set<TModel>().RemoveRange(entities);
 		}
 
 	    public void Commit() {
