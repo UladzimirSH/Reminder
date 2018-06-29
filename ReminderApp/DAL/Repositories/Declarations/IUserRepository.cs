@@ -1,6 +1,6 @@
 ﻿using Models;
 
 namespace DAL.Repositories.Declarations {
-    public interface IUserRepository : IRepository<User> {
+    public interface IUserRepository : IRepository<UserModel> {
     }
 }

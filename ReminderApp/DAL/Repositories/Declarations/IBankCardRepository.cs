@@ -1,6 +1,6 @@
-﻿using Domain.Entities;
+﻿using Models;
 
 namespace DAL.Repositories.Declarations {
-    interface IBankCardRepository : IRepository<BankCard> {
+    public interface IBankCardRepository : IRepository<BankCardModel> {
     }
 }

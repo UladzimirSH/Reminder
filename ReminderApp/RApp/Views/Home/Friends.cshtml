@@ -1,0 +1,173 @@
+﻿@using Common.Constants
+@using Models
+@model List<FriendModel>
+
+@{
+    ViewBag.Title = "Friends";
+}
+
+
+@{    
+    var lastAddedFriend = new FriendModel();
+}
+
+
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+
+    <table id="friendTable" class="table table-bordered">
+        <thead>
+        <tr>
+            <th scope="col" width="30">#</th>
+            <th>
+                @DisplayNames.FirstName
+            </th>
+            <th>
+                @DisplayNames.LastName
+            </th>
+            <th>
+                @DisplayNames.DateOfBirth
+            </th>
+            <th>
+                @DisplayNames.DateOfWedding
+            </th>
+            <th>
+                @DisplayNames.IsNotify
+            </th>
+            <th>
+            </th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        @foreach (Models.FriendModel friendModel in Model) {
+            <tr data-userid="@friendModel.Id">
+                <th scope="row" class="rowIndex"></th>
+                <td>
+                    @friendModel.FirstName
+                </td>
+                <td>
+                    @friendModel.LastName
+                </td>
+                <td>
+                    @friendModel.DateOfBirth.ToShortDateString()
+                </td>
+                <td>
+                    @friendModel.DateOfWedding.ToShortDateString()
+                </td>
+                <td class="text-center align-middle">
+                    @Html.CheckBox(DisplayNames.IsNotify, @friendModel.IsNotify)
+                </td>
+                <td>
+                    <input class="btn btnRemove btn-warning btn-sm" type="button" name="name" value="Remove" />
+                </td>
+            </tr>            
+        }
+            <tr class="IsNew">
+                <th scope="row" class="rowIndex"></th>
+                <td>
+                    @Html.EditorFor(modelItem => lastAddedFriend.FirstName, new { htmlAttributes = new { @class = "form-control firstName" } })
+                </td>
+                <td>
+                    @Html.EditorFor(modelItem => lastAddedFriend.LastName, new { htmlAttributes = new { @class = "form-control lastName" } })
+                </td>
+                <td>
+                    @Html.EditorFor(modelItem => lastAddedFriend.DateOfBirth, new { htmlAttributes = new { @class = "form-control dateOfBirth" } })
+                </td>
+                <td>
+                    @Html.EditorFor(modelItem => lastAddedFriend.DateOfWedding, new { htmlAttributes = new { @class = "form-control dateOfWedding" } })
+                </td>
+                <td>
+                    @Html.EditorFor(modelItem => lastAddedFriend.IsNotify, new { htmlAttributes = new { @class = "text-center align-middle form-control isNotify" } })
+                </td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+        <tr>
+            <td></td>
+            <td colspan="6">
+                <input class="btn btnAdd btn-danger" type="button" name="name" value="Add" />
+                <div class="divider"></div>
+                <input class="btn btn-success" id="btnSubmit" type="button" value="Submit" />
+            </td>
+        </tr>
+        </tfoot>
+    </table>    
+}
+
+@section scripts{
+    <script>
+        $(document).ready(function() {
+            SetCurrentRowIndexes($('th.rowIndex'));
+        });
+        
+        $(".btnAdd").click(function () {
+            var td0 = ' <td>' + GetTableRowCount($('#friendTable')) + '</td>';
+            var td1 = '<td>@Html.EditorFor(modelItem => lastAddedFriend.FirstName, new { htmlAttributes = new { @class = "form-control firstName" } })</td>';
+            var td2 = '<td>@Html.EditorFor(modelItem => lastAddedFriend.LastName, new { htmlAttributes = new { @class = "form-control lastName" } })</td>';
+            var td3 = '<td>@Html.EditorFor(modelItem => lastAddedFriend.DateOfBirth, new { htmlAttributes = new { @class = "form-control dateOfBirth" } })</td>';
+            var td4 = '<td>@Html.EditorFor(modelItem => lastAddedFriend.DateOfWedding, new { htmlAttributes = new { @class = "form-control dateOfWedding" } })</td>';            
+            var td5 = '<td>@Html.EditorFor(modelItem => lastAddedFriend.IsNotify, new { htmlAttributes = new { @class = "form-control isNotify" } })</td>';            
+
+            $("tbody").append('<tr class="IsNew">' + td0 + td1 + td2 + td3 + td4 + td5+ '</tr>');
+        });
+
+        $(".btnRemove").click(function () {
+            debugger;
+            var tr = $(this).closest('tr');
+            var friendId = tr.attr("data-userid");
+            tr.remove();
+                       
+            $.ajax({
+                url: '/Home/DeleteFriend',
+                type: 'POST',
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({ "friendId": friendId }),
+                success: function () {
+                    // alert("Data Added Successfully");                    
+                },
+                error: function () {
+                    alert("Error while inserting data");
+                }
+            });
+            SetCurrentRowIndexes($('th.rowIndex'));
+        });       
+
+        function getAllData() {            
+            var alldata;
+            $('tbody tr.IsNew').each(function () {
+                alldata = {
+                    'FirstName': $(this).find('.firstName').val(),
+                    'LastName': $(this).find('.lastName').val(),
+                    'DateOfBirth': $(this).find('.dateOfBirth').val(),
+                    'DateOfWedding': $(this).find('.dateOfWedding').val(),
+                    'IsNotify': $(this).find('.isNotify').val()
+                }
+            });
+
+            return alldata;
+        }
+
+        $('#btnSubmit').click(function () {          
+            $.ajax({
+                url: '/Home/SaveFriends',
+                type: 'POST',
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify(getAllData()),
+                success: function () {
+                    //alert("Data Added Successfully");
+                    $('tbody tr.IsNew').removeClass("IsNew");
+                },
+                error: function () {
+                    alert("Error while inserting data");
+                }
+            });
+        });
+
+    </script>
+}

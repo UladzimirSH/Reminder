@@ -20,7 +20,12 @@ namespace RApp {
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/CustomSS.css"));
+         
+
+            bundles.Add(new ScriptBundle("~/bundles/customScripts").Include(
+                "~/Scripts/tableFuncs.js"));
         }
     }
 }

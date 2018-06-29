@@ -5,11 +5,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Domain.Entities {
     public class Friend : EntityBase {
 
-        [Required]
-        [ForeignKey(nameof(User))]
+        [Required]        
         public int UserId { get; set; }
 
-        public virtual User User { get; set; }
+        //public virtual User User { get; set; }
 
         [MaxLength(50)]
         public string FirstName { get; set; }

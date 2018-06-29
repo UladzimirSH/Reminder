@@ -1,6 +1,6 @@
-﻿using Domain.Entities;
+﻿using Models;
 
 namespace DAL.Repositories.Declarations {
-    interface IFriendRepository : IRepository<Friend> {
+    public interface IFriendRepository : IRepository<FriendModel> {
     }
 }

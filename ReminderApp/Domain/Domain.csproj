@@ -50,6 +50,8 @@
     <Compile Include="Entities\BankCard.cs" />
     <Compile Include="Entities\EntityBase.cs" />
     <Compile Include="Entities\Friend.cs" />
+    <Compile Include="Entities\TaskType.cs" />
+    <Compile Include="Entities\ToDoTask.cs" />
     <Compile Include="FixEfProviderServicesProblem.cs" />
     <Compile Include="Migrations\201806270700204_InitialCreate.cs" />
     <Compile Include="Migrations\201806270700204_InitialCreate.Designer.cs">
@@ -62,6 +64,14 @@
     <Compile Include="Migrations\201806270710487_DataAnnotations1.cs" />
     <Compile Include="Migrations\201806270710487_DataAnnotations1.Designer.cs">
       <DependentUpon>201806270710487_DataAnnotations1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806291025032_UseId.cs" />
+    <Compile Include="Migrations\201806291025032_UseId.Designer.cs">
+      <DependentUpon>201806291025032_UseId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806291343270_TaskType.cs" />
+    <Compile Include="Migrations\201806291343270_TaskType.Designer.cs">
+      <DependentUpon>201806291343270_TaskType.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,6 +99,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806270710487_DataAnnotations1.resx">
       <DependentUpon>201806270710487_DataAnnotations1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806291025032_UseId.resx">
+      <DependentUpon>201806291025032_UseId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806291343270_TaskType.resx">
+      <DependentUpon>201806291343270_TaskType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,10 +1,12 @@
-﻿using DAL.Repositories.Declarations;
-using Domain.Contexts;
+﻿using DAL.Mappers;
+using DAL.Repositories.Declarations;
+using Domain.Entities;
 using Models;
 
 namespace DAL.Repositories {    
-    public class UserReporitory : Repository<User>, IUserRepository {
-        public UserReporitory() : base(new MainContext()) {
-        }      
+    public class UserReporitory : Repository<UserModel, User>, IUserRepository {
+        public UserReporitory(IMapper<UserModel, User> mapper) : base(mapper)
+        {
+        }
     }
 }

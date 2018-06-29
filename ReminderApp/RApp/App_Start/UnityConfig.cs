@@ -1,10 +1,8 @@
+using Services.Services;
 using System;
-using DAL.Repositories;
-using DAL.Repositories.Declarations;
 using Unity;
 
-namespace RApp
-{
+namespace RApp {
     /// <summary>
     /// Specifies the Unity configuration for the main container.
     /// </summary>
@@ -40,10 +38,8 @@ namespace RApp
             // NOTE: To load from web.config uncomment the line below.
             // Make sure to add a Unity.Configuration to the using statements.
             // container.LoadConfiguration();
-
-            // TODO: Register your type's mappings here.
-            // container.RegisterType<IProductRepository, ProductRepository>();
-            container.RegisterType<IUserRepository, DAL.Repositories.UserReporitory>();
-        }
+           
+           Services.UnityConfig.RegisterTypes(container);          
+        }      
     }
 }

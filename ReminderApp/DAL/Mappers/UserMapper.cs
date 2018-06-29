@@ -1,9 +1,9 @@
 ﻿using Entity = Domain.Entities;
-using User = Models.User;
+using UserModel = Models.UserModel;
 
 namespace DAL.Mappers {
-    public class UserMapper : IMapper<User, Entity.User> {
-        public Entity.User ToModel(User model) {
+    public class UserMapper : IMapper<UserModel, Entity.User> {
+        public Entity.User ToEntity(UserModel model) {
             return new Entity.User {
                 Email = model.Email,
                 Password = model.Password,
@@ -11,8 +11,8 @@ namespace DAL.Mappers {
             };
         }
 
-        public User ToEntity(Entity.User entity) {
-            return new User {
+        public UserModel ToModel(Entity.User entity) {
+            return new UserModel {
                 Email = entity.Email,
                 Password = entity.Password,
                 PhoneNumber = entity.PhoneNumber
