@@ -23,6 +23,6 @@ namespace Domain.Entities {
         [MaxLength(256)]
         public string Note { get; set; }
 
-        public NotifyType NotifyType { get; set; }        
+        public NotifyType? NotifyType { get; set; }        
     }
 }

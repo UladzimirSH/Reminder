@@ -8,7 +8,9 @@
 
 
 @{    
-    var lastAddedFriend = new FriendModel();
+    var lastAddedFriend = new FriendModel() {
+        IsNotify = true
+    };
 }
 
 
@@ -80,7 +82,7 @@
                     @Html.EditorFor(modelItem => lastAddedFriend.DateOfWedding, new { htmlAttributes = new { @class = "form-control dateOfWedding" } })
                 </td>
                 <td>
-                    @Html.EditorFor(modelItem => lastAddedFriend.IsNotify, new { htmlAttributes = new { @class = "text-center align-middle form-control isNotify" } })
+                    @Html.CheckBoxFor(modelItem => lastAddedFriend.IsNotify, new { htmlAttributes = new { @class = "text-center align-middle form-control isNotify" } })
                 </td>
             </tr>
         </tbody>

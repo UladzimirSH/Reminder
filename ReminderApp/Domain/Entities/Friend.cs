@@ -22,7 +22,7 @@ namespace Domain.Entities {
         [Required]
         public DateTime DateOfBirth { get; set; }
 
-        public DateTime DateOfWedding { get; set; }
+        public DateTime? DateOfWedding { get; set; }
 
         [Required]
         public bool IsNotify { get; set; }

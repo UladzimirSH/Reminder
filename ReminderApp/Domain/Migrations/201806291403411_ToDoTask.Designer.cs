@@ -7,13 +7,13 @@ namespace Domain.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class DataAnnotations1 : IMigrationMetadata
+    public sealed partial class ToDoTask : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(DataAnnotations1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ToDoTask));
         
         string IMigrationMetadata.Id
         {
-            get { return "201806270710487_DataAnnotations1"; }
+            get { return "201806291403411_ToDoTask"; }
         }
         
         string IMigrationMetadata.Source
