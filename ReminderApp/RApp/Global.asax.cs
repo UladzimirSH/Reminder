@@ -1,6 +1,8 @@
 ﻿using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Services;
+using Unity;
 
 namespace RApp {
     public class MvcApplication : System.Web.HttpApplication {
@@ -9,6 +11,8 @@ namespace RApp {
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            UnityConfig.Container.Resolve<Scheduler>().Run();
         }
     }
 }

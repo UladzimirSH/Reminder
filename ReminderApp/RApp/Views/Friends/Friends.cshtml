@@ -124,7 +124,7 @@
             tr.remove();
                        
             $.ajax({
-                url: '/Home/DeleteFriend',
+                url: '/Friends/DeleteFriend',
                 type: 'POST',
                 dataType: 'json',
                 contentType: 'application/json; charset=utf-8',
@@ -156,7 +156,7 @@
 
         $('#btnSubmit').click(function () {          
             $.ajax({
-                url: '/Home/SaveFriends',
+                url: '/Friends/SaveFriends',
                 type: 'POST',
                 dataType: 'json',
                 contentType: 'application/json; charset=utf-8',

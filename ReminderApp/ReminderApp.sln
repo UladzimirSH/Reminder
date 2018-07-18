@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{0FE790C3-5941-4DB1-B7DE-8B21CA462816}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notificator", "Notificator\Notificator.csproj", "{CF32B2BB-0DE2-454D-9490-80FFA6043AE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Tests", "Services.Tests\Services.Tests.csproj", "{0007FD31-CB5B-4F86-A26D-3185620611D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{0FE790C3-5941-4DB1-B7DE-8B21CA462816}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FE790C3-5941-4DB1-B7DE-8B21CA462816}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FE790C3-5941-4DB1-B7DE-8B21CA462816}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF32B2BB-0DE2-454D-9490-80FFA6043AE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF32B2BB-0DE2-454D-9490-80FFA6043AE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF32B2BB-0DE2-454D-9490-80FFA6043AE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF32B2BB-0DE2-454D-9490-80FFA6043AE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0007FD31-CB5B-4F86-A26D-3185620611D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0007FD31-CB5B-4F86-A26D-3185620611D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0007FD31-CB5B-4F86-A26D-3185620611D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0007FD31-CB5B-4F86-A26D-3185620611D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -12,10 +12,7 @@ namespace Services.Services {
             _friendRepository = friendRepository;
         }
 
-        public IEnumerable<FriendModel> GetAllFriends(int userId) {
-            if (userId < 0) {
-                return new List<FriendModel>();
-            }
+        public IEnumerable<FriendModel> GetAllFriends() {          
             return _friendRepository.GetAll();
         }
 
@@ -27,6 +24,10 @@ namespace Services.Services {
         public void AddFriends(List<FriendModel> friends) {
             _friendRepository.AddRange(friends);
             _friendRepository.Commit();
+        }
+
+        public List<FriendModel> GetFeastFriends() {
+            return _friendRepository.GetFeastFriends();
         }
     }
 }

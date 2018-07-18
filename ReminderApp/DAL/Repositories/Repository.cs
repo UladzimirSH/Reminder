@@ -16,7 +16,7 @@ namespace DAL.Repositories {
         where TEntity : EntityBase{
 
 		protected readonly DbContext Context;
-	    private readonly IMapper<TModel, TEntity> _mapper;
+	    protected readonly IMapper<TModel, TEntity> _mapper;
 
 		public Repository(IMapper<TModel, TEntity> mapper) {
 			Context = new MainContext();
